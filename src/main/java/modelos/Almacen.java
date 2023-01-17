@@ -5,29 +5,29 @@ import java.util.Objects;
 public class Almacen {
 
     //Atributos
-    private int identificador;
-    private String nombre;
-    private int capacidad;
+    private Integer identificador;
+    private String nombre ;
+    private Integer capacidad;
 
     //Constructores
-    public Almacen(){
-    }
-
-    public Almacen(int identificador, String nombre, int capacidad){
+    public Almacen(Integer identificador, String nombre, Integer capacidad) {
         this.identificador = identificador;
         this.nombre = nombre;
         this.capacidad = capacidad;
-
     }
 
-    //Getters y Setters
-    public int getIdentificador(){
-        return this.identificador;
+    public Almacen() {
     }
 
-    public void setIdentificador(int identificador){
+    //Getter and Setters
+
+
+    public Integer getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(Integer identificador) {
         this.identificador = identificador;
-
     }
 
     public String getNombre() {
@@ -38,20 +38,21 @@ public class Almacen {
         this.nombre = nombre;
     }
 
-    public int getCapacidad() {
+    public Integer getCapacidad() {
         return capacidad;
     }
 
-    public void setCapacidad(int capacidad) {
+    public void setCapacidad(Integer capacidad) {
         this.capacidad = capacidad;
     }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Almacen almacen = (Almacen) o;
-        return identificador == almacen.identificador && capacidad == almacen.capacidad && Objects.equals(nombre, almacen.nombre);
+        return Objects.equals(identificador, almacen.identificador) && Objects.equals(nombre, almacen.nombre) && Objects.equals(capacidad, almacen.capacidad);
     }
 
     @Override

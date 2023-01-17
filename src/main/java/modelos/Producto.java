@@ -5,14 +5,14 @@ import java.util.Objects;
 
 public class Producto {
 
-    private int identificador;
+    private Integer identificador;
     private String codigo;
     private String descripcion;
     private LocalDate fechaCaducidad;
     private TipoProducto tipoProducto;
     private Almacen almacen;
 
-    public Producto(int identificador, String codigo, String descripcion, LocalDate fechaCaducidad, TipoProducto tipoProducto, Almacen almacen) {
+    public Producto(Integer identificador, String codigo, String descripcion, LocalDate fechaCaducidad, TipoProducto tipoProducto, Almacen almacen) {
         this.identificador = identificador;
         this.codigo = codigo;
         this.descripcion = descripcion;
@@ -24,11 +24,12 @@ public class Producto {
     public Producto() {
     }
 
-    public int getIdentificador() {
+
+    public Integer getIdentificador() {
         return identificador;
     }
 
-    public void setIdentificador(int identificador) {
+    public void setIdentificador(Integer identificador) {
         this.identificador = identificador;
     }
 
@@ -77,7 +78,7 @@ public class Producto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return identificador == producto.identificador && Objects.equals(codigo, producto.codigo) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(fechaCaducidad, producto.fechaCaducidad) && tipoProducto == producto.tipoProducto && Objects.equals(almacen, producto.almacen);
+        return Objects.equals(identificador, producto.identificador) && Objects.equals(codigo, producto.codigo) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(fechaCaducidad, producto.fechaCaducidad) && tipoProducto == producto.tipoProducto && Objects.equals(almacen, producto.almacen);
     }
 
     @Override

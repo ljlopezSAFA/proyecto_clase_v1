@@ -1,9 +1,11 @@
 package utilidades;
 
+import modelos.Cliente;
 import modelos.Factura;
 import modelos.LineaFactura;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class UtilidadesFactura {
 
@@ -87,6 +89,29 @@ public class UtilidadesFactura {
 
 
     }
+
+    public Double gastoTotalCliente(List<Factura> facturas, Cliente cliente){
+
+        Double importeTotal = 0.0;
+
+        for(Factura factura: facturas){
+            if(factura.getCliente().equals(cliente)){
+                importeTotal += calcularTotalAPagar(factura);
+            }
+        }
+
+        return importeTotal;
+    }
+
+    public Double gastoTotalClienteV2(List<Factura> facturas, Cliente cliente){
+
+        return facturas
+                .stream()
+                .filter(f-> f.getCliente().equals(cliente))
+                .mapToDouble(Factura::getTotalAPagar)
+                .sum();
+    }
+
 
 
 
